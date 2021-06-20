@@ -1,7 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
-require('dotenv').config()
 const morgan = require('morgan')
 const Person = require('./models/person')
 
@@ -38,7 +38,6 @@ app.get('/api/persons', (request, response) => {
 
 app.get('/info', (req, res) => {
   const date = new Date()
-
   Person.find({}).then(persons =>{
     res.send(`<p>Phonebook has info for ${persons.length} people</p>
   ${date}`)
